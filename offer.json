@@ -1,0 +1,51 @@
+{
+  "buyer_visibility": "local file under the publish directory only: no listing was posted, no request was sent, and no buyer has been shown this",
+  "byte_length": 25873,
+  "citation_count": 7,
+  "citations": [
+    "https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1010/",
+    "https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-525/",
+    "https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-521/",
+    "https://datatracker.ietf.org/doc/html/rfc9110#section-9.3.1",
+    "https://chainlist.org/chain/8453",
+    "https://ethereum.org/developers/docs/apis/json-rpc/",
+    "https://docs.base.org/"
+  ],
+  "content_encoding": "utf-8",
+  "content_sha256": "aa3fc7c5228b57f113dee559a082cfaab4e8680e29bffbc0ae1104135ffc158b",
+  "counterparty_obligations": "The buyer must retain this offer's content_sha256 beside any copy it redistributes and must attribute the source; the buyer may not resell the document as a live feed, since it is a dated snapshot; the seller's only obligation is to serve the bytes whose digest this offer carries.",
+  "currency_minor_unit_note": "price_base_units is integer minor units of the accepted token as configured in MONEYMAN_X402_DECIMALS; no USD value is stated here because nothing in this repository reads an exchange rate",
+  "decimals": 6,
+  "endpoint_configuration": {
+    "accepted_token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "chain_id": "eip155:8453",
+    "enabled": true,
+    "facilitator_configured": false,
+    "note": "configuration read from the operator environment only; an endpoint that is not serving means nothing can buy this yet, and this document does not claim otherwise",
+    "refusal_reason": "no_facilitator: MONEYMAN_X402_FACILITATOR_URL is unset, so a payment could be taken without being settled",
+    "serving": false,
+    "settlement_address_configured": true
+  },
+  "finding_fingerprint": "6706d45a9adbd9c972a0d57ff716cf1b67150b8b258985594a5c71ff561ebd3a",
+  "input_spec": "Nothing required from the buyer. The measurement was taken 2026-10-30/31 UTC from one host against the endpoints listed in the artifact; re-running the bundled probe reproduces every row.",
+  "license": "CC BY 4.0 for the report text and the probe code, attribution requested on redistribution; no warranty is offered and none is implied by the price.",
+  "output_spec": "One UTF-8 markdown document: findings F1-F6, the root cause, eight numbered reproduction steps, the affected endpoint versions as each self-reports web3_clientVersion, a runnable proof-of-concept, a decision table for a balance-polling watcher, the limits of the measurement, and the sha256 of the four raw JSON captures the tables were generated from.",
+  "price_base_units": 500000,
+  "provenance": {
+    "content_gate": "moneyman/revenue/review_gate.assess_persisted_packet: passed=True, findings=[]",
+    "content_sha256": "sha256 over the bytes above, equal to work_packets.canonical_packet_digest -- the digest the approval bound",
+    "deliverable_bytes": "work packet base-rpc-client-fingerprint-survey-2026-10-30 v1 artifact_markdown, NFC-normalized",
+    "price": "MONEYMAN_X402_PRICE_BASE_UNITS and MONEYMAN_X402_DECIMALS, operator-declared",
+    "terms": "copied verbatim from the operator's MONEYMAN_OFFER_* declarations",
+    "timestamp_note": "this document carries no timestamp by design, so the same deliverable always publishes to the same bytes; when it was offered is recorded in published_offers.json",
+    "written_by_agent": "noite-ops-agent",
+    "written_by_module": "moneyman/revenue/publish_ledger.py"
+  },
+  "quality_benchmark": "Every table regenerates from the four raw captures bound by sha256 in the artifact, and the bundled proof-of-concept reproduces F1, F3 and the affected-version rows from a clean shell: a row that no longer reproduces is a failed check and is refundable under the terms above.",
+  "refund_policy": "Non-refundable once the payload bytes have been served; if the bytes delivered do not hash to this offer's content_sha256, refund within 7 days on request.",
+  "resource_id": "base-rpc-client-fingerprint-survey-2026-10-30",
+  "sale_status": "no order accepted and nothing settled by this write",
+  "schema": "moneyman-published-offer-1.0",
+  "summary": "A dated, reproducible survey of ten public Base mainnet JSON-RPC endpoints: which client fingerprint each refuses, what each read limit actually is, and in which shape each refusal arrives; with the probe suite and the raw captures named by sha256.",
+  "turnaround_slo": "1 hour"
+}

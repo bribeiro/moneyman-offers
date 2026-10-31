@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>USDC 0.50 on Base: public Base RPC client-fingerprint &amp; read-limit survey</title>
+<style>body{font:16px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;max-width:54rem;margin:2rem auto;padding:0 1rem;color:#18181b}
+h1{font-size:1.35rem}h2{font-size:1.05rem;margin-top:2rem}code,pre{font-family:ui-monospace,Menlo,monospace}
+pre{background:#f4f4f5;padding:.8rem;border-radius:6px;overflow:auto;font-size:.75rem}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid #d4d4d8;padding:.4rem .6rem;text-align:left;vertical-align:top;font-size:.9rem}
+.pay{background:#ecfdf5;border:1px solid #34d399;padding:1rem;border-radius:8px}
+.no{background:#fef2f2;border:1px solid #f87171;padding:1rem;border-radius:8px}
+.small{font-size:.8rem;color:#52525b}</head><body>
+<h1>For sale: public Base RPC client-fingerprint &amp; read-limit survey</h1>
+<p>A dated, reproducible survey of ten public Base mainnet JSON-RPC endpoints: which client fingerprint each refuses, what each read limit actually is, and in which shape each refusal arrives; with the probe suite and the raw captures named by sha256.</p>
+<table><tr><th>resource id</th><td><code>base-rpc-client-fingerprint-survey-2026-10-30</code></td></tr>
+<tr><th>artifact</th><td>one UTF-8 markdown document, 25873 bytes</td></tr>
+<tr><th>content sha256</th><td><code>aa3fc7c5228b57f113dee559a082cfaab4e8680e29bffbc0ae1104135ffc158b</code></td></tr>
+<tr><th>price</th><td>500000 base units USDC, decimals 6 = <b>USDC 0.50</b> on <code>eip155:8453</code></td></tr>
+<tr><th>accepted token</th><td><code>0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913</code></td></tr>
+<tr><th>destination</th><td><code>0xb85c7972A10A578d09Fd296140991f1C7AaC04B3</code> — the operator-declared receive-only settlement
+address, the same value <code>/api/x402/status</code> reports as <code>settlement_address</code>
+and <code>/api/deposits/targets</code> reports as <code>primary_target.address</code>; the seller
+holds no private key for it</td></tr>
+<tr><th>publish ledger row</th><td><code>f27e266a184a4030a3e4f87b6434277ca5ccb98602f393129c79e3e3044e7cde</code> written 2026-10-31T00:18:28.710937+00:00 by <code>moneyman/revenue/publish_ledger.py</code></td></tr>
+<tr><th>content gate</th><td>#92 <code>assess_persisted_packet</code>: 7 citations, published without an override</td></tr></table>
+
+<div class="pay"><b>To buy.</b> Send <b>USDC 0.50 on Base</b> to
+<code>0xb85c7972A10A578d09Fd296140991f1C7AaC04B3</code>, then send the transaction hash and your paying address to
+<a href="https://github.com/bribeiro/moneyman/issues">bribeiro/moneyman issues</a> or the
+<a href="https://gist.github.com/bribeiro/bf8afdadb9cbae30667a3e0d527308bf">listing gist</a>.
+The document is delivered only after the seller's chain reader reports that transfer arrived at
+that destination. Turnaround 1 hour. Non-refundable once the payload bytes have been served; if the bytes delivered do not hash to this offer's content_sha256, refund within 7 days on request.</div>
+
+<h2>Live seller endpoints (while the tunnel is up)</h2>
+<p class="small">These run behind a GET-only allowlist gateway: write methods are answered 405
+before anything is forwarded, <code>Authorization</code> and <code>Cookie</code> are stripped,
+and any path outside the read allowlist is answered 403. The tunnel host is ephemeral; this
+page is the durable pointer and is regenerated when the URL changes.</p>
+<table>
+<tr><th>offer page</th><td><a href="https://believe-unified-poultry-compilation.trycloudflare.com/offer">https://believe-unified-poultry-compilation.trycloudflare.com/offer</a></td></tr>
+<tr><th>machine-readable offer + preview</th><td><a href="https://believe-unified-poultry-compilation.trycloudflare.com/offer.json">https://believe-unified-poultry-compilation.trycloudflare.com/offer.json</a></td></tr>
+<tr><th>x402 resource route</th><td><a href="https://believe-unified-poultry-compilation.trycloudflare.com/api/x402/research/base-rpc-client-fingerprint-survey-2026-10-30">https://believe-unified-poultry-compilation.trycloudflare.com/api/x402/research/base-rpc-client-fingerprint-survey-2026-10-30</a></td></tr>
+<tr><th>seller's live endpoint state</th><td><a href="https://believe-unified-poultry-compilation.trycloudflare.com/api/x402/status">https://believe-unified-poultry-compilation.trycloudflare.com/api/x402/status</a></td></tr>
+<tr><th>seller's earned revenue</th><td><a href="https://believe-unified-poultry-compilation.trycloudflare.com/api/revenue/earned">https://believe-unified-poultry-compilation.trycloudflare.com/api/revenue/earned</a></td></tr></table>
+
+<h2>Seller's live state, unedited</h2>
+<pre>{
+  "accepted_token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+  "chain_id": "eip155:8453",
+  "enabled": true,
+  "facilitator_configured": false,
+  "note": "configuration read from the operator environment only; an endpoint that is not serving means nothing can buy this yet, and this document does not claim otherwise",
+  "refusal_reason": "no_facilitator: MONEYMAN_X402_FACILITATOR_URL is unset, so a payment could be taken without being settled",
+  "serving": false,
+  "settlement_address_configured": true
+}
+ledger rows in /tmp/mm-noite-publish/published_offers.json: 1 (latest: base-rpc-client-fingerprint-survey-2026-10-30)
+sale_status: no order accepted and nothing settled by this write
+buyer_visibility: local file under the publish directory only: no listing was posted, no request was sent, and no buyer has been shown this</pre>
+
+<h2>Preview (2600 of 25873 bytes)</h2>
+<pre># Research work packet: base-rpc-client-fingerprint-survey-2026-10-30 (v1)
+
+Agent: noite-ops-agent
+Research lane: free-stdlib-probe (no billed provider call)
+Provider: moneyman repo code absent: host CPython urllib probes, scripts in the artifact
+
+## Canonical opportunity record
+- Opportunity ID: `base-rpc-client-fingerprint-survey-2026-10-30`
+- Official URL: https://docs.base.org/
+- Scope URL: https://chainlist.org/chain/8453
+- Task type: measured_public_rpc_interop_survey
+- Deliverable: A dated, reproducible survey of public Base mainnet JSON-RPC endpoints: which client fingerprint each one refuses, what each one's read limits are, and in which shape each refusal arrives.
+- Eligibility: Open: any integrator reading Base mainnet over a public endpoint may buy it. No program permission, account, or KYC is required of buyer or seller.
+- Entry cost: 0 USD: no listing fee, no marketplace fee, no entry fee was paid or owed
+- Operating cost: Provider spend 0.00 USD: every measurement was made with this repo's own free stdlib probe path, no billed LLM call, per the #144 ceiling of 0.00
+- Asset / Network: USDC on eip155:8453
+- Acceptance criteria: Every table in the artifact regenerates from the four raw JSON captures listed by sha256 in the artifact, and the PoC in the artifact reproduces F1, F3 and the affected-version claims from a clean shell.
+- Deadline: no deadline: a dated snapshot, stale by design, timestamps printed in the artifact
+- External actor: none: sold directly to any x402 client, no third-party program in the path
+- Evidence level: primary_source_verified
+
+## Review checklist
+- [ ] Official program and scope source reviewed
+- [ ] Asset, version, and allowed research methods confirmed
+- [ ] Eligibility, jurisdiction, and KYC requirements confirmed
+- [ ] No entry fee or required operating spend confirmed from official terms
+- [ ] Deliverable is within scope and safe to submit
+
+## Payout & Deposit Target
+- Destination: `0xb85c7972A10A578d09Fd296140991f1C7AaC04B3`
+- Custody: Endereço declarado pelo operador (USDC na rede eip155:8453) - somente recebimento (self_custody)
+- Asset: USDC (Network: eip155:8453)
+- Access status: Configured target
+- Instructions: Send USDC on eip155:8453 to 0xb85c7972A10A578d09Fd296140991f1C7AaC04B3. This is the operator's self-custody destination: the fleet holds no key for it, so it may be paid here and observed here, and never signed from here.
+
+## Sources
+- https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1010/
+- https://developers.cloudflare.com/support/trouble</pre>
+
+<h2>Terms</h2>
+<p><b>license.</b> CC BY 4.0 for the report text and the probe code, attribution requested on redistribution; no warranty is offered and none is implied by the price.<br>
+<b>input spec.</b> Nothing required from the buyer. The measurement was taken 2026-10-30/31 UTC from one host against the endpoints listed in the artifact; re-running the bundled probe reproduces every row.<br>
+<b>output spec.</b> One UTF-8 markdown document: findings F1-F6, the root cause, eight numbered reproduction steps, the affected endpoint versions as each self-reports web3_clientVersion, a runnable proof-of-concept, a decision table for a balance-polling watcher, the limits of the measurement, and the sha256 of the four raw JSON captures the tables were generated from.<br>
+<b>counterparty obligations.</b> The buyer must retain this offer's content_sha256 beside any copy it redistributes and must attribute the source; the buyer may not resell the document as a live feed, since it is a dated snapshot; the seller's only obligation is to serve the bytes whose digest this offer carries.<br>
+<b>quality benchmark.</b> Every table regenerates from the four raw captures bound by sha256 in the artifact, and the bundled proof-of-concept reproduces F1, F3 and the affected-version rows from a clean shell: a row that no longer reproduces is a failed check and is refundable under the terms above.</p>
+
+<h2>Citations in the document</h2>
+<ul><li><a href="https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1010/">https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1010/</a></li><li><a href="https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-525/">https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-525/</a></li><li><a href="https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-521/">https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-521/</a></li><li><a href="https://datatracker.ietf.org/doc/html/rfc9110#section-9.3.1">https://datatracker.ietf.org/doc/html/rfc9110#section-9.3.1</a></li><li><a href="https://chainlist.org/chain/8453">https://chainlist.org/chain/8453</a></li><li><a href="https://ethereum.org/developers/docs/apis/json-rpc/">https://ethereum.org/developers/docs/apis/json-rpc/</a></li><li><a href="https://docs.base.org/">https://docs.base.org/</a></li></ul>
+
+<p class="small">Page regenerated 2026-10-31T00:27:08Z. Nothing on this page has been sold, ordered or
+settled: the seller's own revenue endpoint answers
+<code>verified_realized_revenue_usd: 0.0</code>, <code>refusal_code: nothing_earned_yet</code>,
+<code>verified_paying_customers.count: 0</code>, <code>live_settlement_proven: false</code>.
+Source of the pipeline: <a href="https://github.com/bribeiro/moneyman">bribeiro/moneyman</a>.</p>
+</body></html>

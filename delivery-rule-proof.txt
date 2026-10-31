@@ -1,0 +1,11 @@
+[OK ] narrative hash that exists nowhere
+       rc=2 refused=not_arrived ledger_written=False rows=0
+       {   "arrival": {     "arrived": false,     "checks": {       "amount": {         "expected": 500000,         "observed": null,         "passed": false       },       "asset": {         "expected": "USDC",         "observed": null,         "passed": true       },       "chain_answer": {         "deta
+[OK ] real Base tx 0xb5ac5aea0218338a... which paid nobody here
+       rc=2 refused=not_arrived ledger_written=False rows=0
+       {   "arrival": {     "arrived": false,     "checks": {       "amount": {         "expected": 500000,         "observed": 0,         "passed": false       },       "asset": {         "expected": "USDC",         "observed": "USDC",         "passed": true       },       "chain_answer": {         "detai
+[OK ] no reader injected (MONEYMAN_ARRIVAL_BASE_RPC_URL emptied)
+       rc=2 refused=unknown ledger_written=False rows=0
+       {   "arrival": {     "arrived": false,     "checks": {       "declaration": {         "expected": "0xb85c7972A10A578d09Fd296140991f1C7AaC04B3:USDC:eip155:8453",         "observed": "0xb85c7972A10A578d09Fd296140991f1C7AaC04B3:USDC:eip155:8453",         "passed": true       },       "expectation": {  
+
+EVERY LIE REFUSED, NOTHING WRITTEN: True

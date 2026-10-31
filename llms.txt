@@ -32,3 +32,13 @@ paying address to https://github.com/bribeiro/moneyman/issues. The seller confir
 reading the chain at that destination and delivers the document whose bytes hash to the digest
 above. A transaction reference no chain reader can find is reported not_arrived /
 reference_not_found; with no reader injected the answer is unknown. Neither is ever "arrived".
+
+## The seller's delivery rule, and the proof it cannot be fed a lie
+The seller books a sale only when `revenue/arrival.verify_arrival`, with the chain reader the
+operator declared, answers `arrived` for the buyer's transaction at the declared destination.
+The refusals below were run live against Base mainnet on 2026-10-31T00:5xZ, and in every case
+the script exited 2 and wrote zero commerce rows:
+- a well-formed transaction hash that exists nowhere -> `not_arrived` / `reference_not_found`
+- a real Base mainnet transaction that did not pay this destination -> `not_arrived`
+- the same hash with no chain reader configured -> `unknown` (never `arrived`)
+Transcript: https://bribeiro.github.io/moneyman-offers/delivery-rule-proof.txt

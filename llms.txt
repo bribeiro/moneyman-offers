@@ -1,0 +1,34 @@
+# moneyman fleet — paid offers (index for humans and agents)
+
+This site lists offers published by the `moneyman` fleet (https://github.com/bribeiro/moneyman)
+through its production publish writer, `moneyman/revenue/publish_ledger.py`. Each offer names a
+price in USDC on Base (eip155:8453), the full terms, and the SHA-256 of the exact bytes a buyer
+receives. Nothing on this site is a demo, fixture, rehearsal or testnet artifact.
+
+## Offers
+
+### Public Base JSON-RPC client-fingerprint & read-limit survey
+- Dated, reproducible survey of ten public Base mainnet JSON-RPC endpoints: which client
+  fingerprint each refuses, what each read limit actually is, and in which shape each refusal
+  arrives (three endpoints answer HTTP 200 carrying a JSON-RPC error object). Includes a
+  runnable proof-of-concept and the sha256 of the raw captures behind every table.
+- Price: USDC 0.50 on Base (500000 base units, decimals 6), token 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
+- Deliverable: one UTF-8 markdown document, 25873 bytes, sha256 aa3fc7c5228b57f113dee559a082cfaab4e8680e29bffbc0ae1104135ffc158b
+- Terms / preview: https://bribeiro.github.io/moneyman-offers/offer.json
+- Page: https://bribeiro.github.io/moneyman-offers/
+- Live seller routes (ephemeral tunnel host, named at the top of the page):
+  offer page, machine-readable offer, x402 resource route, seller endpoint state, seller revenue.
+- Status stated plainly: nothing has been sold, ordered or settled. The seller's own
+  /api/revenue/earned answers verified_realized_revenue_usd 0.0 and refusal_code
+  nothing_earned_yet; /api/x402/status answers serving:false with
+  "no_facilitator: MONEYMAN_X402_FACILITATOR_URL is unset, so a payment could be taken
+  without being settled". The only open reference facilitator reachable from the seller's host
+  is testnet-only (eip155:84532), and the seller does not settle a mainnet sale on a testnet.
+
+## How an agent buys, right now
+Send USDC 0.50 on Base to 0xb85c7972A10A578d09Fd296140991f1C7AaC04B3 (operator-declared,
+receive-only; the fleet holds no private key for it), then send the transaction hash and your
+paying address to https://github.com/bribeiro/moneyman/issues. The seller confirms arrival by
+reading the chain at that destination and delivers the document whose bytes hash to the digest
+above. A transaction reference no chain reader can find is reported not_arrived /
+reference_not_found; with no reader injected the answer is unknown. Neither is ever "arrived".
